@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نموذج تقديم في الدورات الصيفية | أكاديمية أمجاد المستقبل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1440;
+    --navy-deep:#060B29;
+    --gold:#C9952C;
+    --gold-light:#F0D98C;
+    --gold-pale:#FBF1D9;
+    --ivory:#FAF6EC;
+    --ink:#1C2340;
+    --ink-soft:#5B6280;
+    --line:#E7DFC9;
+    --danger:#B3452F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    background-image:
+      radial-gradient(circle at 15% 5%, rgba(201,149,44,0.08), transparent 40%),
+      radial-gradient(circle at 85% 95%, rgba(11,20,64,0.06), transparent 40%);
+    font-family:'Tajawal', sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px 80px;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    padding:38px 20px 70px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-2px; left:0; right:0; height:40px;
+    background:var(--ivory);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    transform:scaleX(1.3);
+  }
+  .hero-inner{max-width:760px; margin:0 auto; position:relative; z-index:2;}
+  .logo-badge{
+    width:132px; height:auto; margin:0 auto 14px; display:block;
+    filter:drop-shadow(0 6px 18px rgba(0,0,0,0.35));
+  }
+  .hero h1{
+    font-family:'Cairo', sans-serif;
+    font-weight:900;
+    font-size:clamp(22px,4.4vw,30px);
+    color:#fff;
+    margin:6px 0 8px;
+    line-height:1.4;
+  }
+  .hero .gold-line{
+    color:var(--gold-light);
+  }
+  .hero p.tagline{
+    color:#C7CEEA;
+    font-size:14.5px;
+    margin:0 0 22px;
+    line-height:1.9;
+  }
+  .site-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:linear-gradient(135deg, var(--gold-light), var(--gold));
+    color:var(--navy-deep);
+    text-decoration:none;
+    font-family:'Cairo';
+    font-weight:800;
+    font-size:14px;
+    padding:12px 22px;
+    border-radius:40px;
+    box-shadow:0 8px 20px rgba(201,149,44,0.35);
+    transition:transform .2s ease;
+  }
+  .site-link:hover{transform:translateY(-2px);}
+  .site-link svg{width:16px; height:16px;}
+
+  /* WELCOME NOTE */
+  .welcome-card{
+    margin:-34px auto 30px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 22px;
+    box-shadow:0 12px 30px rgba(11,20,64,0.08);
+    position:relative;
+    z-index:3;
+    text-align:center;
+  }
+  .welcome-card p{
+    margin:0;
+    font-size:14.5px;
+    line-height:2;
+    color:var(--ink-soft);
+  }
+  .welcome-card strong{color:var(--navy); font-family:'Cairo'; font-weight:800;}
+
+  /* STEP PATH — signature element echoing the shooting-star path in the logo */
+  .path-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:36px 0 8px;
+    position:relative;
+  }
+  .path-row::before{
+    content:"";
+    position:absolute;
+    top:17px; right:9%; left:9%;
+    height:2px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px);
+    z-index:0;
+  }
+  .path-step{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:center;
+    gap:8px;
+    flex:1;
+  }
+  .path-star{
+    width:36px; height:36px;
+    background:var(--navy);
+    border:2px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-light);
+    font-family:'Cairo'; font-weight:900; font-size:14px;
+  }
+  .path-label{
+    font-family:'Cairo'; font-weight:700; font-size:12.5px;
+    color:var(--ink); text-align:center; max-width:90px;
+  }
+
+  /* SECTIONS */
+  section.card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 24px 8px;
+    margin-bottom:22px;
+    box-shadow:0 10px 24px rgba(11,20,64,0.05);
+  }
+  .card h2{
+    font-family:'Cairo'; font-weight:800;
+    font-size:18px;
+    color:var(--navy);
+    display:flex; align-items:center; gap:10px;
+    margin:0 0 4px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--gold-pale);
+  }
+  .card h2 .num{
+    width:28px; height:28px; min-width:28px;
+    background:linear-gradient(135deg, var(--gold-light), var(--gold));
+    color:var(--navy-deep);
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+
+  .field{margin:18px 0;}
+  .field label{
+    display:block;
+    font-family:'Cairo'; font-weight:700;
+    font-size:13.5px;
+    color:var(--navy);
+    margin-bottom:8px;
+  }
+  .field .hint{
+    font-weight:400; color:var(--ink-soft); font-size:12px; margin-right:4px;
+  }
+  input[type=text], input[type=tel], input[type=number], select, textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    font-family:'Tajawal';
+    font-size:14.5px;
+    color:var(--ink);
+    background:#FDFCF8;
+    transition:border-color .15s, box-shadow .15s;
+  }
+  textarea{resize:vertical; min-height:80px;}
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(201,149,44,0.18);
+    background:#fff;
+  }
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%23C9952C' stroke-width='2' fill='none' fill-rule='evenodd'/></svg>");
+    background-repeat:no-repeat;
+    background-position:left 14px center;
+    padding-left:36px;
+  }
+
+  .radio-group, .check-group{
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .radio-pill, .check-pill{
+    flex:1 1 auto;
+    display:flex; align-items:center; gap:7px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:10px 14px;
+    font-size:13.5px;
+    cursor:pointer;
+    background:#FDFCF8;
+    transition:.15s;
+  }
+  .radio-pill input, .check-pill input{accent-color:var(--gold); width:16px; height:16px;}
+  .radio-pill:has(input:checked), .check-pill:has(input:checked){
+    border-color:var(--gold);
+    background:var(--gold-pale);
+  }
+  .days-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
+  @media(max-width:480px){.days-grid{grid-template-columns:repeat(2, 1fr);}}
+
+  #learning-diff-box{display:none;}
+  #learning-diff-box.show{display:block;}
+
+  .required::after{content:" *"; color:var(--danger);}
+
+  .submit-btn{
+    width:100%;
+    background:linear-gradient(135deg, var(--navy), var(--navy-deep));
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:16px;
+    font-family:'Cairo'; font-weight:800; font-size:16px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    box-shadow:0 12px 26px rgba(11,20,64,0.3);
+    transition:transform .15s ease;
+    margin-top:10px;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .submit-btn:disabled{opacity:.6; cursor:wait; transform:none;}
+  .submit-btn svg{width:18px; height:18px;}
+
+  .footnote{
+    text-align:center; font-size:12px; color:var(--ink-soft); margin-top:14px; line-height:1.9;
+  }
+
+  #success-screen{
+    display:none;
+    text-align:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:50px 24px;
+    box-shadow:0 10px 24px rgba(11,20,64,0.06);
+  }
+  #success-screen.show{display:block;}
+  #form-content.hide{display:none;}
+  .success-star{
+    width:70px; height:70px; margin:0 auto 18px;
+    background:linear-gradient(135deg, var(--gold-light), var(--gold));
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(201,149,44,0.35);
+  }
+  #success-screen h2{font-family:'Cairo'; color:var(--navy); font-size:21px; margin:0 0 10px;}
+  #success-screen p{color:var(--ink-soft); font-size:14.5px; line-height:2;}
+
+  .error-msg{
+    color:var(--danger); font-size:12.5px; margin-top:6px; display:none; font-family:'Cairo'; font-weight:700;
+  }
+  .error-msg.show{display:block;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <img src="logo.png" alt="أكاديمية أمجاد المستقبل" class="logo-badge">
+    <h1>نموذج تقديم في <span class="gold-line">الدورات الصيفية</span><br>لأكاديمية أمجاد المستقبل</h1>
+    <p class="tagline">خطوة واحدة تفصل ابنك عن رحلة صيف مبارك في حفظ كتاب الله</p>
+    <a class="site-link" href="https://share.google/dMFK60sRbYnMHMDTO" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+      تعرّف على الدورات وشروطها وأسعارها
+    </a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="welcome-card">
+    <p>
+      <strong>أهلاً ومرحباً بكم 🌙</strong><br>
+      يسعدنا انضمام ابنكم/ابنتكم إلى الدورات الصيفية المكثفة بأكاديمية أمجاد المستقبل.
+      برجاء تعبئة البيانات التالية بدقة حتى نتمكن من التواصل معكم وتحديد الحصص المناسبة بإذن الله.
+    </p>
+  </div>
+
+  <div id="form-content">
+  <div class="path-row">
+    <div class="path-step"><div class="path-star">١</div><div class="path-label">بيانات الطالب</div></div>
+    <div class="path-step"><div class="path-star">٢</div><div class="path-label">بيانات ولي الأمر</div></div>
+    <div class="path-step"><div class="path-star">٣</div><div class="path-label">اختيار الدورة</div></div>
+  </div>
+
+  <form id="reg-form">
+
+    <!-- SECTION 1 -->
+    <section class="card">
+      <h2><span class="num">١</span> بيانات الطالب</h2>
+
+      <div class="field">
+        <label class="required">اسم الطالب</label>
+        <input type="text" id="s_name" required>
+      </div>
+
+      <div class="field">
+        <label class="required">العمر</label>
+        <input type="number" id="s_age" min="3" max="25" required>
+      </div>
+
+      <div class="field">
+        <label class="required">رقم التليفون <span class="hint">(لاستلام روابط الحصص)</span></label>
+        <input type="tel" id="s_phone" placeholder="01xxxxxxxxx" required>
+      </div>
+
+      <div class="field">
+        <label class="required">النوع</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="s_gender" value="ذكر" required> ذكر</label>
+          <label class="radio-pill"><input type="radio" name="s_gender" value="أنثى"> أنثى</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="required">مقدار الحفظ الحالي ومستواه</label>
+        <textarea id="s_memorization" required placeholder="مثال: حافظ جزء عمّ، مستوى المراجعة متوسط"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="required">المعرفة بالتجويد ومستواها</label>
+        <textarea id="s_tajweed" required placeholder="مثال: يعرف أحكام النون الساكنة، مستوى مبتدئ"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="required">هل يعاني الطالب من صعوبات تعلّم؟</label>
+        <div class="radio-group">
+          <label class="radio-pill"><input type="radio" name="s_diff" value="نعم" required> نعم</label>
+          <label class="radio-pill"><input type="radio" name="s_diff" value="لا"> لا</label>
+        </div>
+      </div>
+
+      <div class="field" id="learning-diff-box">
+        <label>اذكر تفاصيل صعوبة التعلّم</label>
+        <textarea id="s_diff_details" placeholder="يرجى التوضيح لمساعدتنا في اختيار الأنسب للطالب"></textarea>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="card">
+      <h2><span class="num">٢</span> بيانات ولي الأمر</h2>
+
+      <div class="field">
+        <label class="required">اسم ولي الأمر</label>
+        <input type="text" id="g_name" required>
+      </div>
+
+      <div class="field">
+        <label class="required">رقم تليفون ولي الأمر</label>
+        <input type="tel" id="g_phone" placeholder="01xxxxxxxxx" required>
+      </div>
+
+      <div class="field">
+        <label class="required">صلة القرابة بالطالب</label>
+        <input type="text" id="g_relation" placeholder="مثال: الأب / الأم / الجد" required>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="card">
+      <h2><span class="num">٣</span> الدورة المكثفة والجدول</h2>
+
+      <div class="field">
+        <label class="required">اختر الدورة المكثفة</label>
+        <select id="c_course" required>
+          <option value="" disabled selected>-- اختر الدورة --</option>
+          <option value="ربع ياسين">ربع ياسين</option>
+          <option value="خمس القرآن (من الشورى إلى الناس)">خمس القرآن (من الشورى إلى الناس)</option>
+          <option value="المفصّل (من قاف إلى الناس)">المفصّل (من قاف إلى الناس)</option>
+          <option value="جزئين (عمّ وتبارك)">جزئين (عمّ وتبارك)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="required">نظام الحصة</label>
+        <select id="c_system" required>
+          <option value="" disabled selected>-- اختر نظام الحصة --</option>
+          <option value="فردي">فردي</option>
+          <option value="ثنائي">ثنائي</option>
+          <option value="رباعي">رباعي</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="required">فترة الحفظ</label>
+        <select id="c_period" required>
+          <option value="" disabled selected>-- اختر الفترة --</option>
+          <option value="صباحي (من 9:00 إلى 1:00 ظهراً)">صباحي (من 9:00 إلى 1:00 ظهراً)</option>
+          <option value="مسائي (من 2:00 إلى 6:00 مساءً)">مسائي (من 2:00 إلى 6:00 مساءً)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="required">عدد الحلقات (الحفظ بالحلقات)</label>
+        <select id="c_circles" required>
+          <option value="" disabled selected>-- اختر عدد الحلقات --</option>
+          <option value="8 حلقات">8 حلقات</option>
+          <option value="12 حلقة">12 حلقة</option>
+          <option value="16 حلقة">16 حلقة</option>
+          <option value="20 حلقة">20 حلقة</option>
+          <option value="24 حلقة">24 حلقة</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="required">الأيام المتاحة لنظام الحلقات</label>
+        <div class="check-group days-grid">
+          <label class="check-pill"><input type="checkbox" name="c_days" value="السبت"> السبت</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الأحد"> الأحد</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الاثنين"> الاثنين</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الثلاثاء"> الثلاثاء</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الأربعاء"> الأربعاء</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الخميس"> الخميس</label>
+          <label class="check-pill"><input type="checkbox" name="c_days" value="الجمعة"> الجمعة</label>
+        </div>
+        <div class="error-msg" id="days-error">يرجى اختيار يوم واحد على الأقل</div>
+      </div>
+
+      <div class="field">
+        <label class="required">الوقت المفضل لنظام الحلقات <span class="hint">(من 9 ص إلى 9 م)</span></label>
+        <select id="c_time" required>
+          <option value="" disabled selected>-- اختر الوقت --</option>
+          <option value="9:00 ص">9:00 ص</option>
+          <option value="10:00 ص">10:00 ص</option>
+          <option value="11:00 ص">11:00 ص</option>
+          <option value="12:00 م">12:00 م</option>
+          <option value="1:00 م">1:00 م</option>
+          <option value="2:00 م">2:00 م</option>
+          <option value="3:00 م">3:00 م</option>
+          <option value="4:00 م">4:00 م</option>
+          <option value="5:00 م">5:00 م</option>
+          <option value="6:00 م">6:00 م</option>
+          <option value="7:00 م">7:00 م</option>
+          <option value="8:00 م">8:00 م</option>
+          <option value="9:00 م">9:00 م</option>
+        </select>
+      </div>
+    </section>
+
+    <button type="submit" class="submit-btn" id="submit-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      إرسال بيانات التقديم
+    </button>
+    <p class="footnote">سيتم التواصل معكم خلال 24-48 ساعة لتأكيد الموعد وطريقة السداد</p>
+  </form>
+  </div>
+
+  <div id="success-screen">
+    <div class="success-star">
+      <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#0B1440" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h2>تم إرسال طلب التقديم بنجاح ✨</h2>
+    <p>جزاكم الله خيراً على ثقتكم في أكاديمية أمجاد المستقبل.<br>سيتواصل معكم فريقنا قريباً بإذن الله لتأكيد بيانات الدورة.</p>
+  </div>
+
+</div>
+
+<script>
+  https://script.google.com/macros/s/AKfycbzaHpVTQdEL8NhapL4xtPoC-EcPeaBtOI41UoXiM4CsQ-Ex5qmeZuD0HGKo3Ej0HXbP/exec
+
+  const diffRadios = document.querySelectorAll('input[name="s_diff"]');
+  const diffBox = document.getElementById('learning-diff-box');
+  diffRadios.forEach(r => r.addEventListener('change', () => {
+    if (document.querySelector('input[name="s_diff"]:checked').value === 'نعم') {
+      diffBox.classList.add('show');
+    } else {
+      diffBox.classList.remove('show');
+    }
+  }));
+
+  const form = document.getElementById('reg-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const daysError = document.getElementById('days-error');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const checkedDays = Array.from(document.querySelectorAll('input[name="c_days"]:checked')).map(d => d.value);
+    if (checkedDays.length === 0) {
+      daysError.classList.add('show');
+      document.querySelector('.days-grid').scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    } else {
+      daysError.classList.remove('show');
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+
+    const data = {
+      "اسم الطالب": document.getElementById('s_name').value,
+      "العمر": document.getElementById('s_age').value,
+      "رقم تليفون الطالب": document.getElementById('s_phone').value,
+      "النوع": document.querySelector('input[name="s_gender"]:checked')?.value || "",
+      "مقدار الحفظ ومستواه": document.getElementById('s_memorization').value,
+      "المعرفة بالتجويد ومستواها": document.getElementById('s_tajweed').value,
+      "هل يعاني من صعوبات تعلم": document.querySelector('input[name="s_diff"]:checked')?.value || "",
+      "تفاصيل صعوبات التعلم": document.getElementById('s_diff_details').value,
+      "اسم ولي الأمر": document.getElementById('g_name').value,
+      "تليفون ولي الأمر": document.getElementById('g_phone').value,
+      "صلة القرابة": document.getElementById('g_relation').value,
+      "الدورة المختارة": document.getElementById('c_course').value,
+      "نظام الحصة": document.getElementById('c_system').value,
+      "فترة الحفظ": document.getElementById('c_period').value,
+      "عدد الحلقات": document.getElementById('c_circles').value,
+      "الأيام المختارة": checkedDays.join('، '),
+      "الوقت المفضل": document.getElementById('c_time').value
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('form-content').classList.add('hide');
+      document.getElementById('success-screen').classList.add('show');
+      window.scrollTo({top:0, behavior:'smooth'});
+    })
+    .catch((err) => {
+      alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'إرسال بيانات التقديم';
+    });
+  });
+</script>
+
+</body>
+</html>
